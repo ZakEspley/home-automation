@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Home</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+</head>
+<body>
+    <div id="app">
+        <v-app>
+          <v-toolbar app color="orange" dark>
+            <v-toolbar-title>Home Control</v-toolbar-title>
+          </v-toolbar>
+          <!-- <v-navigation-drawer app></v-navigation-drawer> -->
+          <v-content>
+            <v-card>
+              <v-container fluid grid-list-xs>
+                <v-layout row wrap>
+                  <v-flex xs1>
+                    <v-card color="pink accent-3" class="white--text">
+                      <v-img src="/static/imgs/ligtbulb.png" height="200px" contain></v-img>
+                    </v-card>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-card-title primary-title>
+                      <div>
+                        <div class="headline">
+                            Lights
+                          </div>
+                          <div>
+                            Zak's Room
+                          </div>
+                      </div>
+                    </v-card-title>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card>
+          </v-content>
+          <v-footer></v-footer>
+        </v-app>
+      </div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+      <script src="/static/js/vueApp.js"></script>
+</body>
+</html>
