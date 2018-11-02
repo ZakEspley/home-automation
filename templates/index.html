@@ -5,32 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
-    <script src="/static/js/materialize.js"></script>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/mystyles.css">
 </head>
 <body>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">My Home</a>
-            </div>
-        </nav>
+   <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #3f4447;">
+       <a class="navbar-brand" href="#">My Home</a>
+       <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+           aria-expanded="false" aria-label="Toggle navigation"></button>
+   </nav>
 
-        <div class="row">
-            <div class="col s2 m3">
-                <div class="card green">
-                    <div class="card-image"><img src="/static/imgs/ligtbulb.png" alt=""></div>
-                    <div class="card-content white-text">
-                        <span class="card-title">Zak's Lights</span>
-                        <p>Turn on and off Zak's Lights</p>
+   {% set i = 0 %}
+      <div class="row">
+      {% for object in household_objects%}
+        <div class="col-md-2 d-flex">
+            <div class="card control-card" style="background-color:cadetblue; border-color:darkblue;">
+              <img class="card-img-top" src="{{object.imgPath}}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">{{object.name}}</h4>
+                <!-- <p class="card-text">{{ object.description }}</p> -->
+              </div>
+              <div class="card-footer">
+                <!-- <div class="row">
+                  {% for command in object.commands %}
+                  <div class="col-xs-12">
+                    <form action="/device/{{ object.deviceID }}" method="post">
+                      <input type="hidden" name="{{object.deviceID}}_command_{{ command }}" id="{{object.name}}_command_{{ command }}" value="{{ command }}" class="invisible">
+                      <button type="submit" class="btn btn-primary">{{ command }}</button>
+                    </form>
+                  </div>
+                  {% endfor %}
+                </div> -->
+
+                <form action="/device/{{ object.deviceID }}" method="post" class="">
+                  <!-- <div class="form-row"> -->
+                    <div class="" role="">
+                    {% for command in object.commands %}
+                      <!-- <div class="col"> -->
+                        <button type="submit" value="{{ command }}" name="command" class="btn-lg btn-primary w-100">{{ command }}</button>
+                      <!-- </div> -->
+                    {% endfor %}
                     </div>
-                    <div class="card-action">
-                        <a href=""></a>
-                        <a href=""></a>
-                    </div>
-                </div>
+                  <!-- </div> -->
+                </form>
+
+              </div>
             </div>
-        </div>
+            {% set i=i+2 %}
+          </div>
+        {% endfor %}
+      </div>
     
 </body>
 </html>
